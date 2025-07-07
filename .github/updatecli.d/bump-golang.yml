@@ -8,7 +8,7 @@ scms:
     spec:
       user: '{{ requiredEnv "GITHUB_ACTOR" }}'
       username: '{{ requiredEnv "GITHUB_ACTOR" }}'
-      owner: elastic
+      owner: v1v
       repository: golang-crossbuild
       token: '{{ requiredEnv "GITHUB_TOKEN" }}'
       branch: '{{ requiredEnv "BRANCH" }}'
@@ -94,7 +94,7 @@ conditions:
     kind: shell
     spec:
       command: grep ':= {{ source `golangVersion` }}' go/Makefile.common && exit 1 || exit 0
-    failwhen: true
+    failwhen: false
 
 targets:
   update-go-version:
